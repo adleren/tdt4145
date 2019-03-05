@@ -197,15 +197,15 @@ HAVING `Snittår` > (
 
 ### 3a)
 
-![Oppgave 3a](3a.jpg)
+![Oppgave 3a](res/3a.jpg)
 
 ### 3b)
 
-![Oppgave 3a](3b.jpg)
+![Oppgave 3a](res/3b.jpg)
 
 ### 3c)
 
-![Oppgave 3a](3c.jpg)
+![Oppgave 3a](res/3c.jpg)
 
 ## Oppgave 4
 
