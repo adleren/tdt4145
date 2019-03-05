@@ -1,5 +1,7 @@
 # Innlevering 1 - Konseptuell Datamodell
 
+**Gruppe 70** - Magnus Ramm, Magnus Tidemann, Vy Thi My Nguyen, Adrian Leren
+
 ## ER-diagram
 
 ![ER-diagram](res/er-diagram.jpg)
