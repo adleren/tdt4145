@@ -49,30 +49,23 @@ $K = \langle 32, 18, 15, 16, 26, 17\rangle$
 
 $h(k) = k \mod 4$
 
-**Før første dobling**
-![Hash før dobling](res/hash_before.jpg)
+![2) Hash: Før dobling](res/hash_before.jpg)
 
-**Resultat**
-![Hash resultat](res/hash_after.jpg)
+![2) Hash: Resultat](res/hash_after.jpg)
 
 ## Oppgave 3
 
 $K = \langle 9, 17, 4, 21, 25, 26, 8, 10, 30, 22, 32 \rangle$
 
-**Før første splitt** - Neste nøkkel er 21.
-![Før første splitt](res/b+1.jpg)
+![3) B+-tre: Før første splitt](res/b+1.jpg)
 
-**Før andre splitt** - Neste nøkkel er 26.
-![Før andre splitt](res/b+2.jpg)
+![3) B+-tre: Før andre splitt](res/b+2.jpg)
 
-**Før tredje splitt** - Neste nøkkel er 10.
-![Før tredje splitt](res/b+3.jpg)
+![3) B+-tre: Før tredje splitt](res/b+3.jpg)
 
-**Før fjerde splitt** - Neste nøkkel er 32.
-![Før fjerde splitt](res/b+4.jpg)
+![3) B+-tre: Før fjerde splitt](res/b+4.jpg)
 
-**Resultat**
-![Resultat](res/b+5.jpg)
+![3) B+-tre: Resultat](res/b+5.jpg)
 
 ## Oppgave 4
 
@@ -108,7 +101,7 @@ Her ser vi på alle blokkene i heap-filen. 1250 blokker.
 
 ### SELECT * From Person WHERE PersonID = 195800
 
-Da PersonID ikke er indeksert så vil det være mest lønnsomt å skanne heapfilen. Ser i værste fall på alle 1250 blokkene.
+Da PersonID ikke er indeksert så vil det være mest lønnsomt å skanne heapfilen. Ser i værste fall må vi aksessere alle 1250 blokkene.
 
 ### SELECT PersonID WHERE LastName = “Søkerud”
 
@@ -120,4 +113,4 @@ Nok en traversering ned, men her må vi se på alle blokker på løvnivå i B+-t
 
 ### INSERT INTO Person(195230, ‘Per’, ‘Persen’, 1971, 185)
 
-I heapfilen skriver vi bare til ledig rom. Hvis vi antar en implementasjon lik den i kompendiet med to forskjellige lenkede lister for ledige og fulle blokker så trenger vi bare å aksessere 1 blokk. For å indeksere posten må vi traversere ned til der den skal ende opp i B+-treet. Denne operasjonen aksesserer 3 blokker (2 ned + 1 på løvnivå). Her antar jeg også at det er ledig plass i blokken på løvnivå. Det gir at vi totalt må aksessere $1$ (heap) $+$ $2 + 1$ (B+-tre) $= 4$ blokker.
+I heapfilen skriver vi bare til ledig rom. Hvis vi antar en implementasjon lik den i kompendiet med to forskjellige lenkede lister for ledige og fulle blokker så trenger vi bare å aksessere 1 blokk. For å indeksere posten må vi traversere ned til der den skal ende opp i B+-treet. Denne operasjonen aksesserer 3 blokker (2 ned + 1 på løvnivå). Her antar jeg også at det er ledig plass i blokken på løvnivå. Det gir at vi totalt må lese $1$ (heap) $+$ $2 + 1$ (B+-tre) $= 4$ blokker. Vi må også skrive til blokkene. Dette gir totalt $4$ (lese) $+$ $2$ (skrive til både heapfil og B+-tre) $= 6$ aksesser.
